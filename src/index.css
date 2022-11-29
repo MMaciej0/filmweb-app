@@ -1,1 +1,84 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+html {
+  font-size: 62.5%;
+}
+
+:root {
+  /* colors */
+  --highlight: 26, 100%, 55%;
+  --primary: 222, 32%, 5%;
+  --secondary: 219, 9%, 45%;
+  --background: 223, 64%, 98%;
+  --white: 360, 100%, 100%;
+  /* other */
+  --main-spacing: 0.2rem;
+  --main-transition: all 0.3s linear;
+  --spacing: 0.2rem;
+  --radius: 0.5rem;
+  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  --max-width: 1170px;
+  --fixed-width: 620px;
+}
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Rubik', sans-serif;
+  background: hsl(var(--background));
+  color: hsl(var(--primary));
+  line-height: 1.5;
+  font-size: 1.6rem;
+  width: 100%;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: hsl(var(--primary));
+}
+
+h1,
+h2,
+h3,
+h4 {
+  letter-spacing: var(--spacing);
+  text-transform: capitalize;
+  line-height: 1.35;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 5rem;
+}
+
+h2 {
+  font-size: 3.5rem;
+}
+
+h3 {
+  font-size: 2.5rem;
+}
+
+h4 {
+  font-size: 2rem;
+}
+
+p {
+  margin-bottom: 1.25rem;
+  color: hsl(var(--secondary));
+}

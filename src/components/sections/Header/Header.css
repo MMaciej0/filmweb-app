@@ -1,0 +1,36 @@
+.nav__container {
+  width: 100%;
+  background-color: hsl(var(--primary));
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 8rem;
+  margin: 0 auto;
+  max-width: var(--max-width);
+  padding-inline: 4rem;
+}
+
+.nav a {
+  color: hsl(var(--white));
+}
+
+.nav__logo {
+  font-size: 2.5rem;
+  letter-spacing: var(--spacing);
+}
+
+.nav__icons a {
+  padding: 1.5rem 3rem;
+  background-color: hsl(var(--highlight-color), 0.8);
+  margin-inline: 0.5rem;
+  border-radius: var(--radius);
+  color: hsl(var(--white));
+  transition: var(--main-transition);
+}
+
+.nav__icons a:hover {
+  color: hsl(var(--highlight));
+}

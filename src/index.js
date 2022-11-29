@@ -6,6 +6,7 @@ import './index.css';
 import HomePage from 'components/pages/HomePage/HomePage';
 import MainLayout from 'components/layouts/MainLayout/MainLayout';
 import AddMoviePage from 'components/pages/AddMoviePage/AddMoviePage';
+import LoginRegisterPage from 'components/pages/LoginRegisterPage/LoginRegisterPage';
 
 const routes = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const routes = createBrowserRouter([
       {
         path: 'add',
         element: <AddMoviePage />,
+      },
+      {
+        path: 'login',
+        element: <LoginRegisterPage />,
       },
     ],
   },
