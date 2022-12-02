@@ -1,6 +1,5 @@
 .movie-list {
   padding-top: 5rem;
-  margin: 2rem;
   display: grid;
   justify-items: center;
   row-gap: 6rem;
