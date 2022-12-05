@@ -1,0 +1,34 @@
+.pagination__container {
+  margin-block: 6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination__page-btns {
+  display: none;
+}
+
+.icon-prev {
+  margin-right: 0.5rem;
+}
+
+.icon-next {
+  margin-left: 0.5rem;
+}
+
+.pagination__container button {
+  padding: 1rem 2rem;
+  border: 2px solid hsl(var(--highlight), 0.5);
+  transition: var(--main-transition);
+}
+
+.pagination__container button:hover {
+  border-color: hsl(var(--highlight));
+}
+
+@media screen and (min-width: 768px) {
+  .pagination__page-btns {
+    display: flex;
+  }
+}
