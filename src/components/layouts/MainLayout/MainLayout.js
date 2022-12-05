@@ -3,7 +3,8 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 import './MainLayout.css';
 
-const MainLayout = () => {
+const MainLayout = ({ user }) => {
+  console.log(user);
   return (
     <div className="main__container">
       <Header />

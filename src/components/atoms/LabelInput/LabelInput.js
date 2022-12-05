@@ -9,7 +9,7 @@ const LabelInput = ({
 }) => {
   return (
     <label>
-      {label}
+      <span>{label}</span>
       <input
         type={type ?? 'text'}
         placeholder={placeholder}

@@ -24,12 +24,14 @@ const HomePage = () => {
 
   const handleSearchMovie = () => {
     if (!searchValue) return;
+
     const newMovies = movies.filter(
       (movie) =>
         movie.director.toLowerCase().includes(searchValue.toLowerCase()) ||
         movie.title.toLowerCase().includes(searchValue.toLowerCase()) ||
         movie.actors.toLowerCase().includes(searchValue.toLowerCase())
     );
+    setCurrentPage(1);
     setFilteredMovies(newMovies);
   };
 
