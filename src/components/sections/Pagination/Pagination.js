@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { GrPrevious, GrNext } from 'react-icons/gr';
 import './pagination.css';
 import PrimaryButton from 'components/atoms/PrimaryButton/PrimaryButton';
+import { useEffect } from 'react';
 
 const Pagination = ({
   itemsPerPage,
@@ -12,6 +13,10 @@ const Pagination = ({
 }) => {
   const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(maxPages);
   const [minPageNumberLimit, setMinPageNumberLimit] = useState(0);
+
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, [currentPage]);
 
   const numOfPages = Math.ceil(totalItems / itemsPerPage);
   const pages = [...Array(numOfPages + 1).keys()].slice(1);
