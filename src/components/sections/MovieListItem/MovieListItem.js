@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import DefaultImg from 'images/default-movie.jpg';
 import PrimaryButton from 'components/atoms/PrimaryButton/PrimaryButton';
 
-const ListItem = ({ posterUrl, title, year, plot }) => {
+const ListItem = ({ posterUrl, title, year, plot, director }) => {
   const [imgUrl, setImgUrl] = useState(posterUrl);
   return (
     <li className="movie-list__item">
@@ -13,6 +13,7 @@ const ListItem = ({ posterUrl, title, year, plot }) => {
       <div className="description__container">
         <div className="description__text">
           <h3>{title}</h3>
+          <h5>{director}</h5>
           <h5>{year}</h5>
           <p>{plot}</p>
         </div>

@@ -10,6 +10,7 @@ const HomePage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [searchValue, setSeachValue] = useState('');
   const [movies, setMovies] = useState([]);
+  const [filteredMovies, setFilteredMovies] = useState([]);
   const [moviesPerPage] = useState(10);
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -21,22 +22,49 @@ const HomePage = () => {
     setSeachValue(e.target.value);
   };
 
+  const handleSearchMovie = () => {
+    if (!searchValue) return;
+    const newMovies = movies.filter(
+      (movie) =>
+        movie.director.toLowerCase().includes(searchValue.toLowerCase()) ||
+        movie.title.toLowerCase().includes(searchValue.toLowerCase()) ||
+        movie.actors.toLowerCase().includes(searchValue.toLowerCase())
+    );
+    setFilteredMovies(newMovies);
+  };
+
+  const handleResetMovies = () => {
+    setSeachValue('');
+    setFilteredMovies([]);
+  };
+
   const endIndex = moviesPerPage * currentPage;
   const startIndex = endIndex - moviesPerPage;
-
-  const moviesToRender = movies.slice(startIndex, endIndex);
 
   return isLoading ? (
     <Loader />
   ) : (
     <div className="home__container">
-      <SearchBar searchValue={searchValue} setSeachValue={handleSearchChange} />
+      <SearchBar
+        searchValue={searchValue}
+        setSeachValue={handleSearchChange}
+        handleSearchMovie={handleSearchMovie}
+        handleResetMovies={handleResetMovies}
+      />
       <div className="home__movies">
-        <FilmList movies={moviesToRender} />
+        <FilmList
+          movies={
+            filteredMovies.length
+              ? filteredMovies.slice(startIndex, endIndex)
+              : movies.slice(startIndex, endIndex)
+          }
+        />
       </div>
       <Pagination
         itemsPerPage={moviesPerPage}
-        totalItems={movies.length}
+        totalItems={
+          filteredMovies.length ? filteredMovies.length : movies.length
+        }
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
         maxPages={5}

@@ -1,5 +1,4 @@
 .search__container {
-  padding-inline: 2rem;
   background-color: white;
 }
 
@@ -10,7 +9,7 @@
 
 .search__input {
   width: 100%;
-  padding: 2rem 1rem;
+  padding-left: 2rem;
   font-size: 2rem;
   outline: none;
   border: none;
@@ -21,16 +20,12 @@
 }
 
 .search__container button {
-  display: flex;
-  padding: 3rem 4rem;
-  border: none;
-  border-left: 2px solid hsl(var(--secondary), 0.4);
   background-color: transparent;
-  font-size: 1.6rem;
   font-weight: 600;
-  letter-spacing: var(--spacing);
-  transition: var(--main-transition);
-  cursor: pointer;
+  display: flex;
+  height: 8rem;
+  padding-inline: 0.5rem;
+  margin-inline: 0;
 }
 
 .search__icon {
@@ -44,6 +39,10 @@
 @media screen and (min-width: 768px) {
   .search__label {
     padding-inline: 5vw;
+  }
+
+  .search__container button {
+    padding-inline: 3rem;
   }
 }
 
