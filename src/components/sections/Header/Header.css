@@ -23,12 +23,14 @@
   letter-spacing: var(--spacing);
 }
 
+.nav__icons {
+  display: flex;
+  align-items: center;
+}
+
 .nav__icons a {
   padding: 1rem;
-  background-color: hsl(var(--highlight-color), 0.8);
   margin-inline: 0.5rem;
-  border-radius: var(--radius);
-  color: hsl(var(--white));
   transition: var(--main-transition);
 }
 
