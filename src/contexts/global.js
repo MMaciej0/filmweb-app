@@ -9,6 +9,7 @@ export const GlobalProvider = ({ children }) => {
   const [userLoading, setUserLoading] = useState(true);
   const [movies, setMovies] = useState([]);
   const [moviesLoading, setMoviesLoading] = useState(true);
+  const [preRedirectLocation, setPreRedirectLocation] = useState('');
 
   useEffect(() => {
     getMovies(setMovies, setMoviesLoading);
@@ -18,7 +19,15 @@ export const GlobalProvider = ({ children }) => {
   if (userLoading || moviesLoading) return <Loader />;
 
   return (
-    <GlobalContext.Provider value={{ user, movies, userLoading }}>
+    <GlobalContext.Provider
+      value={{
+        user,
+        movies,
+        userLoading,
+        preRedirectLocation,
+        setPreRedirectLocation,
+      }}
+    >
       {children}
     </GlobalContext.Provider>
   );

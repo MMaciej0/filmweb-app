@@ -4,12 +4,22 @@ import { auth } from 'utils/firebase';
 import './LoginPage.css';
 import LoginRegisterForm from 'components/sections/LoginRegisterForm/LoginRegisterForm';
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useGlobalContext } from 'contexts/global';
 
 const LoginPage = () => {
   const [emailValue, setEmailValue] = useState('');
   const [passwordValue, setPasswordValue] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const { user } = useGlobalContext();
+
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (user) {
+      navigate(-1);
+    }
+  }, []);
 
   const handleEmailChange = (e) => {
     setEmailValue(e.target.value);
@@ -24,7 +34,7 @@ const LoginPage = () => {
     signInWithEmailAndPassword(auth, emailValue, passwordValue)
       .then(() => {
         setErrorMessage('');
-        navigate('/');
+        navigate(-1);
       })
       .catch((error) => {
         const errorCode = error.code;

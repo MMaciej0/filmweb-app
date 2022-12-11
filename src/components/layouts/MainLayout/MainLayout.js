@@ -10,11 +10,9 @@ const MainLayout = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (
-      user &&
-      (location.pathname === '/login' || location.pathname === '/register')
-    ) {
-      navigate('/');
+    // user redirecting is in LoginPage useEffect
+    if (user && location.pathname === '/register') {
+      navigate(-1);
     }
     if (!user && !userLoading && location.pathname === '/add') {
       navigate('/login');
