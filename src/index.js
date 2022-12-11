@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { GlobalProvider } from 'contexts/global';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './index.css';
 
@@ -42,6 +43,8 @@ const routes = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={routes} />
+    <GlobalProvider>
+      <RouterProvider router={routes} />
+    </GlobalProvider>
   </React.StrictMode>
 );

@@ -1,25 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import UserDropDown from '../UserDropDown/UserDropDown';
-import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import './Header.css';
-import { useState } from 'react';
+import { useGlobalContext } from 'contexts/global';
+import UserDropDown from '../UserDropDown/UserDropDown';
 
 const Header = () => {
-  const [user, setUser] = useState(null);
-  const auth = getAuth();
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      const uid = user.uid;
-      const email = user.email;
-      setUser({ id: uid, email });
-    } else {
-      setUser(null);
-    }
-  });
+  const { user } = useGlobalContext();
 
   return (
-    <header className="nav__container">
+    <div className="nav__container">
       <nav className="nav">
         <div className="nav__logo">
           <Link to="/">MyFilm</Link>
@@ -29,7 +18,7 @@ const Header = () => {
           {user ? <UserDropDown user={user} /> : <Link to="login">Login</Link>}
         </div>
       </nav>
-    </header>
+    </div>
   );
 };
 
