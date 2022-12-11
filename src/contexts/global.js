@@ -1,20 +1,26 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { onAuthStateChanged } from 'firebase/auth';
-import { auth } from 'utils/firebase';
+import { getMovies, getUser } from 'utils/http';
+import Loader from 'components/atoms/Loader/Loader';
 
 const GlobalContext = createContext();
 
 export const GlobalProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [userLoading, setUserLoading] = useState(true);
+  const [movies, setMovies] = useState([]);
+  const [moviesLoading, setMoviesLoading] = useState(true);
 
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      setUser(user);
-    });
+    getMovies(setMovies, setMoviesLoading);
+    getUser(setUser, setUserLoading);
   }, []);
 
+  if (userLoading || moviesLoading) return <Loader />;
+
   return (
-    <GlobalContext.Provider value={{ user }}>{children}</GlobalContext.Provider>
+    <GlobalContext.Provider value={{ user, movies, userLoading }}>
+      {children}
+    </GlobalContext.Provider>
   );
 };
 

@@ -1,25 +1,23 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './HomePage.css';
+import { useGlobalContext } from 'contexts/global';
 import FilmList from 'components/sections/FilmList/FilmList';
 import SearchBar from 'components/sections/SearchBar/SearchBar';
 import Pagination from 'components/sections/Pagination/Pagination';
-import Loader from 'components/atoms/Loader/Loader';
-import { getMovies } from 'utils/http';
 
 const HomePage = () => {
-  const [isLoading, setIsLoading] = useState(true);
   const [searchValue, setSeachValue] = useState('');
-  const [movies, setMovies] = useState([]);
   const [filteredMovies, setFilteredMovies] = useState([]);
   const [moviesPerPage] = useState(10);
   const [currentPage, setCurrentPage] = useState(1);
 
-  useEffect(() => {
-    getMovies(setMovies, setIsLoading);
-  }, []);
+  const { movies } = useGlobalContext();
 
   const handleSearchChange = (e) => {
     setSeachValue(e.target.value);
+    if (searchValue.length === 1) {
+      setFilteredMovies([]);
+    }
   };
 
   const handleSearchMovie = () => {
@@ -43,9 +41,7 @@ const HomePage = () => {
   const endIndex = moviesPerPage * currentPage;
   const startIndex = endIndex - moviesPerPage;
 
-  return isLoading ? (
-    <Loader />
-  ) : (
+  return (
     <div className="home__container">
       <SearchBar
         searchValue={searchValue}

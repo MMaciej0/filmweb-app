@@ -5,7 +5,7 @@ import './MainLayout.css';
 import Header from 'components/sections/Header/Header';
 
 const MainLayout = () => {
-  const { user } = useGlobalContext();
+  const { user, userLoading } = useGlobalContext();
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -16,7 +16,7 @@ const MainLayout = () => {
     ) {
       navigate('/');
     }
-    if (!user && location.pathname === '/add') {
+    if (!user && !userLoading && location.pathname === '/add') {
       navigate('/login');
     }
   }, [user, location.pathname]);
