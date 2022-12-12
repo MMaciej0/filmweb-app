@@ -4,8 +4,8 @@ import { auth, database } from './firebase';
 
 export const getMovies = (callbackData, callbackLoading) => {
   onValue(ref(database, 'movies/movies'), (snapshot) => {
-    const data = snapshot.val();
-    callbackData(data);
+    const data = snapshot.toJSON();
+    callbackData(Object.values(data));
     callbackLoading(false);
   });
 };

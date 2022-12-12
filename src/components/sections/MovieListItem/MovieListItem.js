@@ -1,15 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import DefaultImg from 'images/default-movie.jpg';
 import PrimaryButton from 'components/atoms/PrimaryButton/PrimaryButton';
+import ImageFromUrl from 'components/atoms/ImageFromUrl/ImageFromUrl';
 
-const ListItem = ({ posterUrl, title, year, plot, director }) => {
-  const [imgUrl, setImgUrl] = useState(posterUrl);
+const ListItem = ({ id, posterUrl, title, year, plot, director }) => {
   return (
     <li className="movie-list__item">
-      <div className="image__container">
-        <img src={imgUrl} onError={() => setImgUrl(DefaultImg)} alt={title} />
-      </div>
+      <ImageFromUrl imageUrl={posterUrl} alt={title} />
       <div className="description__container">
         <div className="description__text">
           <h3>{title}</h3>
@@ -17,9 +14,9 @@ const ListItem = ({ posterUrl, title, year, plot, director }) => {
           <h5>{year}</h5>
           <p>{plot}</p>
         </div>
-        <PrimaryButton>
-          <Link to="movie">See more</Link>
-        </PrimaryButton>
+        <Link to={`movies/${id}`}>
+          <PrimaryButton>See more</PrimaryButton>
+        </Link>
       </div>
     </li>
   );

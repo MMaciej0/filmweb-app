@@ -23,7 +23,7 @@ const RegisterPage = () => {
     e.preventDefault();
     createUserWithEmailAndPassword(auth, emailValue, passwordValue)
       .then(() => {
-        navigate('/login');
+        navigate('/');
         setErrorMessage('');
       })
       .catch((error) => {

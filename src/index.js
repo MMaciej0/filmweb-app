@@ -10,6 +10,7 @@ import AddMoviePage from 'components/pages/AddMoviePage/AddMoviePage';
 import LoginPage from 'components/pages/LoginPage/LoginPage';
 import RegisterPage from 'components/pages/RegisterPage/RegisterPage';
 import Dashboard from 'components/pages/Dashboard/Dashboard';
+import SingleMoviePage from 'components/pages/SingleMoviePage/SingleMoviePage';
 
 const routes = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ const routes = createBrowserRouter([
       {
         path: 'dashboard',
         element: <Dashboard />,
+      },
+      {
+        path: 'movies/:id',
+        element: <SingleMoviePage />,
       },
     ],
   },
