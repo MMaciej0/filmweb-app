@@ -1,0 +1,54 @@
+.single-movie__description {
+  padding: 2rem;
+}
+
+.single-movie__subtitle {
+  margin-block: 3rem;
+  font-style: italic;
+}
+
+.single-movie__info {
+  border-top: 2px solid hsl(var(--highlight), 0.6);
+  border-bottom: 2px solid hsl(var(--highlight), 0.6);
+  padding-block: 2rem;
+}
+
+.single-movie__info > h4 {
+  font-size: 1.8rem;
+}
+
+@media screen and (min-width: 768px) {
+  .single-movie__header {
+    display: flex;
+  }
+
+  .single-movie__header .image__comtainer {
+    flex: 2;
+  }
+
+  .single-movie__description {
+    font-size: 2rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .single-movie__description h2 {
+    font-size: 4rem;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .single-movie__container {
+    padding: 6rem 2rem;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    box-shadow: var(--dark-shadow);
+  }
+
+  .single-movie__header img {
+    object-fit: contain;
+    max-height: 600px;
+  }
+}
