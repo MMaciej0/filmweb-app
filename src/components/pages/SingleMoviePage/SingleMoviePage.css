@@ -13,8 +13,20 @@
   padding-block: 2rem;
 }
 
-.single-movie__info > h4 {
-  font-size: 1.8rem;
+.single-movie__rating {
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+}
+
+.single-movie__rating > svg {
+  color: hsl(var(--highlight));
+}
+
+.single-movie__rating > span {
+  font-size: 1rem;
+  margin-left: 2rem;
+  text-transform: lowercase;
 }
 
 @media screen and (min-width: 768px) {
@@ -41,7 +53,7 @@
 
 @media screen and (min-width: 900px) {
   .single-movie__container {
-    padding: 6rem 2rem;
+    padding-block: 6rem;
     max-width: var(--max-width);
     margin: 0 auto;
     box-shadow: var(--dark-shadow);
