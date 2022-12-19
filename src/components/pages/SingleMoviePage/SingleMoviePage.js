@@ -7,6 +7,7 @@ import ImageFromUrl from 'components/atoms/ImageFromUrl/ImageFromUrl';
 import CardSlider from 'components/sections/CardSlider/CardSlider';
 import { stringsArraytoObjectsArr, stringToArray } from 'utils/array';
 import MovieRating from 'components/sections/MovieRating/MovieRating';
+import RentMovieBanner from 'components/sections/RentMovieBanner/RentMovieBanner';
 
 const SingleMoviePage = () => {
   const [movie, setMovie] = useState(null);
@@ -55,9 +56,9 @@ const SingleMoviePage = () => {
             )}
             sliderHeader={'The cast'}
           />
-          <div>content</div>
+          <RentMovieBanner price={movie.rentPrice} />
 
-          {/* rent a movie component */}
+          <div>comments section</div>
         </>
       )}
     </div>

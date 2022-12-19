@@ -6,7 +6,7 @@ import './index.css';
 
 import HomePage from 'components/pages/HomePage/HomePage';
 import MainLayout from 'components/layouts/MainLayout/MainLayout';
-import AddMoviePage from 'components/pages/AddMoviePage/AddMoviePage';
+import Cart from 'components/pages/Cart/Cart';
 import LoginPage from 'components/pages/LoginPage/LoginPage';
 import RegisterPage from 'components/pages/RegisterPage/RegisterPage';
 import Dashboard from 'components/pages/Dashboard/Dashboard';
@@ -22,8 +22,8 @@ const routes = createBrowserRouter([
         element: <HomePage />,
       },
       {
-        path: 'add',
-        element: <AddMoviePage />,
+        path: 'cart',
+        element: <Cart />,
       },
       {
         path: 'login',

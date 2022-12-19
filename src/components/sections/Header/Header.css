@@ -32,10 +32,27 @@
   padding: 1rem;
   margin-inline: 0.5rem;
   transition: var(--main-transition);
+  display: flex;
+  align-items: center;
+  position: relative;
 }
 
 .nav__icons a:hover {
   color: hsl(var(--highlight));
+}
+
+.nav__icons a > svg {
+  font-size: 2.5rem;
+}
+
+.nav__icons a > span {
+  position: absolute;
+  top: -5px;
+  right: 0;
+  background-color: white;
+  color: hsl(var(--primary));
+  padding-inline: 0.6rem;
+  border-radius: 50%;
 }
 
 @media screen and (min-width: 768px) {
@@ -45,5 +62,10 @@
 
   .nav__icons a {
     padding: 1.5rem 3rem;
+  }
+
+  .nav__icons a > span {
+    top: 0;
+    right: 18px;
   }
 }

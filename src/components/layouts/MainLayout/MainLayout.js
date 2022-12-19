@@ -5,7 +5,7 @@ import './MainLayout.css';
 import Header from 'components/sections/Header/Header';
 
 const MainLayout = () => {
-  const { user, userLoading } = useGlobalContext();
+  const { user } = useGlobalContext();
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -13,9 +13,6 @@ const MainLayout = () => {
     // user redirecting is in LoginPage useEffect
     if (user && location.pathname === '/register') {
       navigate(-1);
-    }
-    if (!user && !userLoading && location.pathname === '/add') {
-      navigate('/login');
     }
   }, [user, location.pathname]);
 
