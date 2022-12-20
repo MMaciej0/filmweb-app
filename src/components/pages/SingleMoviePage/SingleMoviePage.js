@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { useGlobalContext } from 'contexts/global';
+import { useGlobalContext } from 'contexts/global/global';
+import { useCartContext } from 'contexts/cart/cart';
 import { AiFillStar } from 'react-icons/ai';
+import { stringsArraytoObjectsArr, stringToArray } from 'utils/array';
+
 import './SingleMoviePage.css';
 import ImageFromUrl from 'components/atoms/ImageFromUrl/ImageFromUrl';
 import CardSlider from 'components/sections/CardSlider/CardSlider';
-import { stringsArraytoObjectsArr, stringToArray } from 'utils/array';
 import MovieRating from 'components/sections/MovieRating/MovieRating';
 import RentMovieBanner from 'components/sections/RentMovieBanner/RentMovieBanner';
 
@@ -14,10 +16,15 @@ const SingleMoviePage = () => {
 
   const { id } = useParams();
   const { movies } = useGlobalContext();
+  const { addToCart } = useCartContext();
 
   useEffect(() => {
     setMovie(movies.find((movie) => movie.id === Number(id)));
   }, [movies]);
+
+  const handleRentMovieBtn = () => {
+    addToCart(movie);
+  };
 
   return (
     <div className="single-movie__container">
@@ -56,7 +63,10 @@ const SingleMoviePage = () => {
             )}
             sliderHeader={'The cast'}
           />
-          <RentMovieBanner price={movie.rentPrice} />
+          <RentMovieBanner
+            price={movie.rentPrice}
+            onRentClick={handleRentMovieBtn}
+          />
 
           <div>comments section</div>
         </>

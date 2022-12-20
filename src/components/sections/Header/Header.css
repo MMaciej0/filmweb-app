@@ -1,7 +1,16 @@
 .nav__container {
   width: 100%;
-  background-color: hsl(var(--primary), 0.9);
   box-shadow: var(--dark-shadow);
+  background: rgb(9, 11, 17);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 125, 26, 0.9) 0,
+    rgba(9, 11, 17, 0.9) 60%
+  );
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 999;
 }
 
 .nav {
@@ -19,7 +28,8 @@
 }
 
 .nav__logo {
-  font-size: 2.5rem;
+  font-size: 3rem;
+  font-weight: bold;
   letter-spacing: var(--spacing);
 }
 
@@ -51,8 +61,10 @@
   right: 0;
   background-color: white;
   color: hsl(var(--primary));
-  padding-inline: 0.6rem;
+  padding-inline: 0.7rem;
   border-radius: 50%;
+  font-weight: bold;
+  background-color: hsl(var(--highlight));
 }
 
 @media screen and (min-width: 768px) {

@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { GlobalProvider } from 'contexts/global';
+import { GlobalProvider } from 'contexts/global/global';
+import { CartProvider } from 'contexts/cart/cart';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './index.css';
 
@@ -49,7 +50,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <GlobalProvider>
-      <RouterProvider router={routes} />
+      <CartProvider>
+        <RouterProvider router={routes} />
+      </CartProvider>
     </GlobalProvider>
   </React.StrictMode>
 );

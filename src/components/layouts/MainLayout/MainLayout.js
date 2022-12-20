@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
-import { useGlobalContext } from 'contexts/global';
+import { useGlobalContext } from 'contexts/global/global';
 import './MainLayout.css';
 import Header from 'components/sections/Header/Header';
 

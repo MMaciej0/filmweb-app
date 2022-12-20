@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Stack, Rating, Button, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import { useGlobalContext } from 'contexts/global';
+import { useGlobalContext } from 'contexts/global/global';
 import { countAverageFromArray } from 'utils/array';
 import { overwiteMovie } from 'utils/http';
 

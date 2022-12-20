@@ -5,7 +5,7 @@ import './LoginPage.css';
 import LoginRegisterForm from 'components/sections/LoginRegisterForm/LoginRegisterForm';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
-import { useGlobalContext } from 'contexts/global';
+import { useGlobalContext } from 'contexts/global/global';
 
 const LoginPage = () => {
   const [emailValue, setEmailValue] = useState('');

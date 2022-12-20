@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './HomePage.css';
-import { useGlobalContext } from 'contexts/global';
+import { useGlobalContext } from 'contexts/global/global';
 import FilmList from 'components/sections/FilmList/FilmList';
 import SearchBar from 'components/sections/SearchBar/SearchBar';
 import Pagination from 'components/sections/Pagination/Pagination';
