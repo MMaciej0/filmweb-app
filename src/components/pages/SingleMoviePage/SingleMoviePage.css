@@ -54,9 +54,6 @@
 @media screen and (min-width: 900px) {
   .single-movie__container {
     padding-block: 6rem;
-    max-width: var(--max-width);
-    margin: 0 auto;
-    box-shadow: var(--dark-shadow);
   }
 
   .single-movie__header img {

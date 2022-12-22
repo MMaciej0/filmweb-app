@@ -80,3 +80,15 @@ p {
   margin-bottom: 1.25rem;
   color: hsl(var(--secondary));
 }
+
+/* reusable classes */
+
+@media screen and (min-width: 900px) {
+  .container__center {
+    /* full height - nav height */
+    min-height: calc(100vh - 8rem);
+    max-width: var(--max-width);
+    margin: 0 auto;
+    box-shadow: var(--dark-shadow);
+  }
+}

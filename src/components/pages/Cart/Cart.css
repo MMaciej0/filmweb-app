@@ -1,0 +1,126 @@
+.cart__container {
+  margin-bottom: 10rem;
+}
+
+.cart-message {
+  text-align: center;
+  padding-top: 20vh;
+}
+
+.cart-message > a {
+  color: hsl(var(--highlight));
+}
+
+.cart-list {
+  padding-block: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 6rem;
+  padding-inline: 1rem;
+}
+
+.cart-list__card {
+  max-width: 300px;
+  border-radius: var(--radius);
+  box-shadow: var(--dark-shadow);
+  overflow: hidden;
+  position: relative;
+}
+
+.card__description {
+  padding: 1rem;
+}
+
+.cart-list__card button {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  font-size: 3rem;
+  padding: 0.5rem;
+  border-radius: var(--radius);
+  background-color: hsl(var(--highlight), 0.7);
+}
+
+.cart-list__card button:hover {
+  background-color: hsl(var(--highlight));
+}
+
+.cart-summary {
+  padding: 1rem;
+  background-color: hsl(var(--white));
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  border-top: 3px solid hsl(var(--highlight));
+  height: 12rem;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  box-shadow: var(--dark-shadow);
+}
+
+.cart-summary h3 > span {
+  color: hsl(var(--highlight));
+}
+
+.cart-summary__text {
+  flex: 1;
+}
+
+.cart-summary__button {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.cart-summary__button button {
+  padding: 1.5rem 2.5rem;
+  font-weight: bold;
+  background-color: hsl(var(--highlight), 0.7);
+  border-radius: var(--radius);
+  text-transform: uppercase;
+}
+
+@media screen and (min-width: 768px) {
+  .cart-list {
+    row-gap: 2rem;
+  }
+
+  .cart-list__card {
+    max-width: 650px;
+    width: 100%;
+    height: 150px;
+    display: flex;
+    position: static;
+  }
+
+  .card__description {
+    flex: 2;
+  }
+
+  .cart-list__card button {
+    position: static;
+    margin: 0;
+    flex: 0.3;
+  }
+
+  .cart-summary {
+    padding-inline: 15%;
+  }
+
+  .cart-summary__button {
+    justify-content: flex-end;
+  }
+
+  .cart-summary__button button {
+    padding: 1.8rem 3.5rem;
+  }
+
+  .cart-summary__button button:hover {
+    background-color: hsl(var(--highlight));
+  }
+}

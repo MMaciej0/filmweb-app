@@ -44,7 +44,7 @@
     display: flex;
   }
 
-  .image__container {
+  .movie-list__item .image__container {
     flex: 1;
   }
 
