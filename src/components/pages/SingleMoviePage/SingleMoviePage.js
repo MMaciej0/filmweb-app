@@ -9,12 +9,13 @@ import ImageFromUrl from 'components/atoms/ImageFromUrl/ImageFromUrl';
 import CardSlider from 'components/sections/CardSlider/CardSlider';
 import MovieRating from 'components/sections/MovieRating/MovieRating';
 import RentMovieBanner from 'components/sections/RentMovieBanner/RentMovieBanner';
+import Comments from 'components/sections/Comments/Comments';
 
 const SingleMoviePage = () => {
   const [movie, setMovie] = useState(null);
 
   const { id } = useParams();
-  const { movies } = useGlobalContext();
+  const { movies, user } = useGlobalContext();
 
   useEffect(() => {
     setMovie(movies.find((movie) => movie.id === Number(id)));
@@ -58,8 +59,7 @@ const SingleMoviePage = () => {
             sliderHeader={'The cast'}
           />
           <RentMovieBanner {...movie} />
-
-          <div>comments section</div>
+          <Comments user={user} />
         </>
       )}
     </div>

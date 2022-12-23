@@ -1,0 +1,10 @@
+.border__input {
+  padding: 0.5rem 1rem;
+  font-size: 1.8rem;
+  border: 1px solid hsl(var(--highlight));
+  border-radius: var(--radius);
+}
+
+.border__input:focus {
+  outline: 1px solid hsl(var(--highlight));
+}

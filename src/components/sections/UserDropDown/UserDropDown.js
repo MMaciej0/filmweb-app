@@ -35,6 +35,7 @@ const UserDropDown = ({ user }) => {
 
   return (
     <div className="user-dropdown" ref={dropContainer}>
+      {/* todo recreate this button to avatar btn */}
       <PrimaryButton handleClick={() => setSelected(!selected)}>
         {user.email[0]}
         <FaChevronDown

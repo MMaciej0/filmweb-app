@@ -1,0 +1,44 @@
+.dashboard__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10vh;
+  padding-inline: 1rem;
+}
+
+.dashboard__container > p {
+  color: hsl(var(--primary));
+  font-size: 2rem;
+  margin-bottom: 4rem;
+}
+
+.dashboard__container > p > span {
+  color: hsl(var(--highlight));
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+.dashboard__row {
+  padding: 1rem;
+}
+
+.dashboard__label {
+  width: 100%;
+  font-size: 2rem;
+  margin-block: 1rem;
+}
+
+.dashboard__row input {
+  width: 100%;
+}
+
+.dashboard__container button {
+  margin: 5rem auto;
+  padding: 1rem 3rem;
+}
+
+@media screen and (min-width: 768px) {
+  .dashboard__row {
+    width: 450px;
+  }
+}

@@ -1,22 +1,22 @@
-.primary-btn {
+.outline-btn {
   letter-spacing: var(--spacing);
   display: flex;
   align-items: center;
   justify-content: center;
-  border: none;
   font-size: 1.6rem;
   margin-inline: 0.5rem;
   transition: var(--main-transition);
   cursor: pointer;
-  background-color: hsl(var(--highlight), 0.8);
+  background-color: hsl(var(--highlight), 0.2);
+  border: 1px solid hsl(var(--highlight));
   border-radius: var(--radius);
   font-weight: bold;
 }
 
-.primary-btn.active {
+.outline-btn.active {
   font-weight: 600;
 }
 
-.primary-btn:hover {
+.outline-btn:hover {
   background-color: hsl(var(--highlight));
 }
