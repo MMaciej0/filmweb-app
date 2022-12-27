@@ -21,6 +21,7 @@
   padding: 1rem 2rem;
   border: 2px solid hsl(var(--highlight), 0.5);
   transition: var(--main-transition);
+  background-color: transparent;
 }
 
 .pagination__container button:hover {

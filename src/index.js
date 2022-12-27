@@ -12,6 +12,7 @@ import LoginPage from 'components/pages/LoginPage/LoginPage';
 import RegisterPage from 'components/pages/RegisterPage/RegisterPage';
 import Dashboard from 'components/pages/Dashboard/Dashboard';
 import SingleMoviePage from 'components/pages/SingleMoviePage/SingleMoviePage';
+import MoviesPage from 'components/pages/MoviesPage/MoviesPage';
 
 const routes = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const routes = createBrowserRouter([
       {
         path: 'dashboard',
         element: <Dashboard />,
+      },
+      {
+        path: 'movies',
+        element: <MoviesPage />,
       },
       {
         path: 'movies/:id',

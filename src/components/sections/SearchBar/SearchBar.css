@@ -1,5 +1,9 @@
 .search__container {
   background-color: white;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  margin-inline: 4rem;
+  border-radius: var(--radius);
 }
 
 .search__label {
@@ -40,14 +44,10 @@
   .search__label {
     padding-inline: 5vw;
   }
-
-  .search__container button {
-    padding-inline: 3rem;
-  }
 }
 
 @media screen and (min-width: 1170px) {
   .search__label {
-    padding-inline: 25vw;
+    padding-inline: 10vw;
   }
 }

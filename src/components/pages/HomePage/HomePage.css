@@ -1,3 +1,24 @@
-.home__movies {
-  padding: 2rem;
+.home__container {
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 1300px) {
+  .home__row {
+    display: flex;
+    flex: 1;
+    overflow-y: auto;
+    max-width: 1500px;
+    margin: 0 auto;
+  }
+
+  .home__filters {
+    flex: 1;
+    overflow-y: auto;
+  }
+
+  .home__movies {
+    flex: 4;
+    overflow-y: auto;
+  }
 }

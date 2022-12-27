@@ -15,6 +15,7 @@
 
 .primary-btn.active {
   font-weight: 600;
+  background-color: hsl(var(--highlight));
 }
 
 .primary-btn:hover {

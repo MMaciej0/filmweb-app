@@ -2,14 +2,16 @@ import React, { useState } from 'react';
 import './HomePage.css';
 import { useGlobalContext } from 'contexts/global/global';
 import FilmList from 'components/sections/FilmList/FilmList';
-import SearchBar from 'components/sections/SearchBar/SearchBar';
 import Pagination from 'components/sections/Pagination/Pagination';
+import Filters from 'components/sections/Filters/Filters';
+import SearchBar from 'components/sections/SearchBar/SearchBar';
 
 const HomePage = () => {
   const [searchValue, setSeachValue] = useState('');
   const [filteredMovies, setFilteredMovies] = useState([]);
   const [moviesPerPage] = useState(10);
   const [currentPage, setCurrentPage] = useState(1);
+  const [filtersVisible, setFiltersVisible] = useState(false);
 
   const { movies } = useGlobalContext();
 
@@ -43,20 +45,27 @@ const HomePage = () => {
 
   return (
     <div className="home__container">
-      <SearchBar
-        searchValue={searchValue}
-        setSeachValue={handleSearchChange}
-        handleSearchMovie={handleSearchMovie}
-        handleResetMovies={handleResetMovies}
-      />
-      <div className="home__movies">
-        <FilmList
-          movies={
-            filteredMovies.length
-              ? filteredMovies.slice(startIndex, endIndex)
-              : movies.slice(startIndex, endIndex)
-          }
-        />
+      <div className="home__row">
+        <div className="home__filters">
+          <Filters
+            visibility={filtersVisible}
+            setVisibility={setFiltersVisible}
+          />
+        </div>
+        <div className="home__movies">
+          <SearchBar
+            searchValue={searchValue}
+            setSeachValue={handleSearchChange}
+            handleSearchMovie={handleSearchMovie}
+          />
+          <FilmList
+            movies={
+              filteredMovies.length
+                ? filteredMovies.slice(startIndex, endIndex)
+                : movies.slice(startIndex, endIndex)
+            }
+          />
+        </div>
       </div>
       <Pagination
         itemsPerPage={moviesPerPage}

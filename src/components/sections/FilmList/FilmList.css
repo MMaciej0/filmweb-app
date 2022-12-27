@@ -1,5 +1,5 @@
 .movie-list {
-  padding-top: 5rem;
+  padding: 3rem 4rem;
   display: grid;
   justify-items: center;
   row-gap: 6rem;
@@ -10,6 +10,10 @@
   box-shadow: var(--dark-shadow);
   overflow: hidden;
   max-width: 450px;
+}
+
+.movie-list__item .image__container img {
+  max-height: 400px;
 }
 
 .description__container {
@@ -30,6 +34,7 @@
   font-size: 1.6rem;
   background-color: hsl(var(--highlight), 0.8);
   margin-block: 1rem;
+  margin-inline: 0;
   cursor: pointer;
   transition: var(--main-transition);
 }
@@ -57,11 +62,12 @@
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1350px) {
   .movie-list {
     grid-template-columns: 1fr 1fr;
     column-gap: 3rem;
     max-width: var(--max-width);
     margin: 0 auto;
+    padding-top: 8rem;
   }
 }
