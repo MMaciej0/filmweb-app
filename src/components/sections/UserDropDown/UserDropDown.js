@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
-import './UserDropDown.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaChevronDown } from 'react-icons/fa';
-import PrimaryButton from 'components/atoms/PrimaryButton/PrimaryButton';
 import { signOut } from 'firebase/auth';
 import { auth } from 'utils/firebase';
+import './UserDropDown.css';
+import DefaultPerson from 'images/person-default.png';
 
 const UserDropDown = ({ user }) => {
   const [selected, setSelected] = useState(false);
@@ -35,15 +35,17 @@ const UserDropDown = ({ user }) => {
 
   return (
     <div className="user-dropdown" ref={dropContainer}>
-      {/* todo recreate this button to avatar btn */}
-      <PrimaryButton handleClick={() => setSelected(!selected)}>
-        {user.email[0]}
+      <div
+        className="user-dropdown__person"
+        onClick={() => setSelected(!selected)}
+      >
+        <img src={user.photoURL ?? DefaultPerson} alt="avatar" />
         <FaChevronDown
           className={
             selected ? 'user-dropdown__icon active' : 'user-dropdown__icon'
           }
         />
-      </PrimaryButton>
+      </div>
       <ul
         className={
           selected
@@ -57,7 +59,7 @@ const UserDropDown = ({ user }) => {
           </Link>
         </li>
         <li>
-          <PrimaryButton handleClick={handleLogout}>Logout</PrimaryButton>
+          <Link onClick={handleLogout}>Logout</Link>
         </li>
       </ul>
     </div>

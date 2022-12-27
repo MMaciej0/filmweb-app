@@ -38,6 +38,7 @@
 
 .login__form button:hover {
   outline: 1px solid hsl(var(--primary));
+  background-color: hsl(var(--white));
 }
 
 .form__info {
