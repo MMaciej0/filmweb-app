@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import './HomePage.css';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useGlobalContext } from 'contexts/global/global';
+import './HomePage.css';
 import FilmList from 'components/sections/FilmList/FilmList';
 import Pagination from 'components/sections/Pagination/Pagination';
 import Filters from 'components/sections/Filters/Filters';
@@ -14,6 +15,11 @@ const HomePage = () => {
   const [filtersVisible, setFiltersVisible] = useState(false);
 
   const { movies } = useGlobalContext();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    navigate('/movies');
+  }, []);
 
   const handleSearchChange = (e) => {
     setSeachValue(e.target.value);

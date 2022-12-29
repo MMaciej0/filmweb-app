@@ -1,23 +1,29 @@
 import React, { useState } from 'react';
 import { FaSortAmountDown } from 'react-icons/fa';
 import { FaChevronDown } from 'react-icons/fa';
-import { useGlobalContext } from 'contexts/global/global';
 import './MoviesPage.css';
 import OutlineButton from 'components/atoms/OutlineButton/OutlineButton';
 import SearchBar from 'components/sections/SearchBar/SearchBar';
 import Filters from 'components/sections/Filters/Filters';
 import FilmList from 'components/sections/FilmList/FilmList';
+import Pagination from 'components/sections/Pagination/Pagination';
+import { useFilterContext } from 'contexts/filter/filter';
 
 const MoviesPage = () => {
   const [filterVisibility, setFilterVisibility] = useState(false);
-  const [filteredMovies, setFilteredMovies] = useState([]);
-  const [moviesPerPage] = useState(10);
-  const [currentPage, setCurrentPage] = useState(1);
 
-  const { movies } = useGlobalContext();
-
-  const endIndex = moviesPerPage * currentPage;
-  const startIndex = endIndex - moviesPerPage;
+  const {
+    handleSearchMovie,
+    handleSearchChange,
+    startIndex,
+    endIndex,
+    filteredMovies,
+    searchValue,
+    movies,
+    moviesPerPage,
+    currentPage,
+    setCurrentPage,
+  } = useFilterContext();
 
   return (
     <div className="movies__container">
@@ -35,29 +41,44 @@ const MoviesPage = () => {
       </div>
 
       <div className="movies__content">
-        <Filters
-          visibility={filterVisibility}
-          setVisibility={setFilterVisibility}
-        />
-
-        <main className="movies-list__container">
-          <div
-            className={
-              filterVisibility
-                ? 'movies-list__search visible'
-                : 'movies-list__search'
-            }
-          >
-            <SearchBar />
-          </div>
-          <FilmList
-            movies={
-              filteredMovies.length
-                ? filteredMovies.slice(startIndex, endIndex)
-                : movies.slice(startIndex, endIndex)
-            }
+        <div className="movies__row">
+          <Filters
+            visibility={filterVisibility}
+            setVisibility={setFilterVisibility}
           />
-        </main>
+
+          <main className="movies-list__container">
+            <div
+              className={
+                filterVisibility
+                  ? 'movies-list__search visible'
+                  : 'movies-list__search'
+              }
+            >
+              <SearchBar
+                searchValue={searchValue}
+                setSeachValue={handleSearchChange}
+                handleSearchMovie={handleSearchMovie}
+              />
+            </div>
+            <FilmList
+              movies={
+                filteredMovies.length
+                  ? filteredMovies.slice(startIndex, endIndex)
+                  : movies.slice(startIndex, endIndex)
+              }
+            />
+          </main>
+        </div>
+        <Pagination
+          itemsPerPage={moviesPerPage}
+          totalItems={
+            filteredMovies.length ? filteredMovies.length : movies.length
+          }
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+          maxPages={5}
+        />
       </div>
     </div>
   );

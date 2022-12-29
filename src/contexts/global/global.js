@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { getMovies, getUser } from 'utils/http';
+import { getData, getUser } from 'utils/http';
 import Loader from 'components/atoms/Loader/Loader';
 
 const GlobalContext = createContext();
@@ -11,7 +11,7 @@ export const GlobalProvider = ({ children }) => {
   const [moviesLoading, setMoviesLoading] = useState(true);
 
   useEffect(() => {
-    getMovies(setMovies, setMoviesLoading);
+    getData('movies', setMovies, setMoviesLoading);
     getUser(setUser, setUserLoading);
   }, []);
 

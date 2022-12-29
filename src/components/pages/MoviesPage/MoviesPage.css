@@ -28,10 +28,25 @@
 @media screen and (min-width: 1021px) {
   .movies__control {
     position: absolute;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .movies__control button {
+    width: 100%;
+    margin-block: 0.5rem;
   }
 
   .movies__content {
     display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    max-width: 1440px;
+  }
+
+  .movies__row {
+    display: flex;
+    flex-direction: row;
   }
 
   .filters__container {
@@ -44,10 +59,20 @@
   }
 }
 
+@media screen and (min-width: 1440px) {
+  .filters__container {
+    flex: 1;
+  }
+
+  .movies-list__container {
+    flex: 3.5;
+  }
+}
+
 .movies-list__search {
   display: none;
   max-width: var(--max-width);
-  margin: 0 auto;
+  margin: 2rem auto;
 }
 
 .movies-list__search.visible {

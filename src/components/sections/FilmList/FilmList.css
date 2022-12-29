@@ -3,6 +3,7 @@
   display: grid;
   justify-items: center;
   row-gap: 6rem;
+  padding-top: 10rem;
 }
 
 .movie-list__item {
@@ -68,6 +69,5 @@
     column-gap: 3rem;
     max-width: var(--max-width);
     margin: 0 auto;
-    padding-top: 8rem;
   }
 }

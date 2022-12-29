@@ -14,7 +14,7 @@ const ListItem = ({ id, posterUrl, title, year, plot, director }) => {
           <h5>{year}</h5>
           <p>{plot}</p>
         </div>
-        <Link to={`movies/${id}`}>
+        <Link to={`${id}`}>
           <PrimaryButton>See more</PrimaryButton>
         </Link>
       </div>
