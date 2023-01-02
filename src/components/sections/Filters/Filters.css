@@ -3,7 +3,19 @@
 }
 
 .filters {
+  padding-left: 1.5rem;
   padding-top: 8rem;
+  overflow-y: scroll;
+  height: calc(100vh - 5rem);
+  direction: rtl;
+}
+
+.filters__row {
+  direction: ltr;
+}
+
+.filters__row:last-child {
+  margin-bottom: 5rem;
 }
 
 .filters__container .filters__row {
@@ -16,7 +28,7 @@
 
 .filters__container .filters__row ul {
   max-height: 200px;
-  overflow: scroll;
+  overflow-y: scroll;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap: 0.5rem;
@@ -38,6 +50,22 @@
 
 .filters__hide {
   display: none;
+}
+
+.filters__submit {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  backdrop-filter: blur(10px);
+  background-color: hsl(var(--primary), 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-block: 2rem;
+}
+
+.filters__submit button {
+  padding: 1rem 4rem;
 }
 
 @media screen and (max-width: 1020px) {
@@ -69,6 +97,14 @@
     top: 3rem;
     right: 3rem;
   }
+
+  .filters__row:last-child {
+    margin-bottom: 8rem;
+  }
+
+  .filters__submit {
+    position: fixed;
+  }
 }
 
 @media screen and (min-width: 1021px) {
@@ -78,6 +114,15 @@
 
   .filters__container {
     display: none;
+  }
+
+  .filters {
+    position: relative;
+    height: calc(100vh - 22rem);
+  }
+
+  .filters::-webkit-scrollbar-track {
+    margin-block: 10rem;
   }
 
   .filters__row.search {
@@ -90,5 +135,10 @@
 
   .filters__container .filters__row ul {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+
+  .filters__submit {
+    position: sticky;
+    background-color: hsl(var(--background));
   }
 }

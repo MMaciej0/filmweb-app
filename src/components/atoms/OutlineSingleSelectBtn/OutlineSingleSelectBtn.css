@@ -1,4 +1,4 @@
-.outline-btn {
+.outline-btn__single {
   letter-spacing: var(--spacing);
   display: flex;
   align-items: center;
@@ -13,14 +13,14 @@
   font-weight: bold;
 }
 
-.outline-btn svg {
+.outline-btn__single svg {
   margin-left: 0.5rem;
 }
 
-.outline-btn.active {
+.outline-btn__single.active {
   background-color: hsl(var(--highlight));
 }
 
-.outline-btn:hover {
+.outline-btn__single:hover {
   background-color: hsl(var(--highlight));
 }

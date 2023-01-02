@@ -5,7 +5,8 @@ import './Filters.css';
 
 import SearchBar from '../SearchBar/SearchBar';
 import Checkbox from 'components/atoms/Checkbox/Checkbox';
-import OutlineButton from 'components/atoms/OutlineButton/OutlineButton';
+import OutlineSingleSelectBtn from 'components/atoms/OutlineSingleSelectBtn/OutlineSingleSelectBtn';
+import PrimaryButton from 'components/atoms/PrimaryButton/PrimaryButton';
 
 const Filters = ({ visibility, setVisibility }) => {
   const { handleSearchMovie, handleSearchChange, searchValue, genres } =
@@ -32,8 +33,11 @@ const Filters = ({ visibility, setVisibility }) => {
           <div className="filters__row">
             <h3>Sort:</h3>
             <div className="filters__buttons">
-              <OutlineButton>Newest</OutlineButton>
-              <OutlineButton>Oldest</OutlineButton>
+              <OutlineSingleSelectBtn active={true}>
+                Random
+              </OutlineSingleSelectBtn>
+              <OutlineSingleSelectBtn>Newest</OutlineSingleSelectBtn>
+              <OutlineSingleSelectBtn>Oldest</OutlineSingleSelectBtn>
             </div>
           </div>
           <div className="filters__row">
@@ -46,6 +50,9 @@ const Filters = ({ visibility, setVisibility }) => {
               ))}
             </ul>
           </div>
+        </div>
+        <div className="filters__submit">
+          <PrimaryButton>Apply</PrimaryButton>
         </div>
       </aside>
     </div>

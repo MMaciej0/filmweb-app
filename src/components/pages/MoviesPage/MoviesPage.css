@@ -46,7 +46,6 @@
 
   .movies__row {
     display: flex;
-    flex-direction: row;
   }
 
   .filters__container {
@@ -56,6 +55,8 @@
 
   .movies-list__container {
     flex: 3;
+    overflow-y: scroll;
+    height: calc(100vh - 12rem);
   }
 }
 

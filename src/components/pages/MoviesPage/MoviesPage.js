@@ -68,17 +68,17 @@ const MoviesPage = () => {
                   : movies.slice(startIndex, endIndex)
               }
             />
+            <Pagination
+              itemsPerPage={moviesPerPage}
+              totalItems={
+                filteredMovies.length ? filteredMovies.length : movies.length
+              }
+              currentPage={currentPage}
+              setCurrentPage={setCurrentPage}
+              maxPages={5}
+            />
           </main>
         </div>
-        <Pagination
-          itemsPerPage={moviesPerPage}
-          totalItems={
-            filteredMovies.length ? filteredMovies.length : movies.length
-          }
-          currentPage={currentPage}
-          setCurrentPage={setCurrentPage}
-          maxPages={5}
-        />
       </div>
     </div>
   );
