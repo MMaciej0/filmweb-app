@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
 import { useFilterContext } from 'contexts/filter/filter';
 import './Filters.css';
@@ -11,6 +11,10 @@ import PrimaryButton from 'components/atoms/PrimaryButton/PrimaryButton';
 const Filters = ({ visibility, setVisibility }) => {
   const { handleSearchMovie, handleSearchChange, searchValue, genres } =
     useFilterContext();
+
+  useEffect(() => {
+    document.body.style.overflowY = visibility ? 'hidden' : 'visible';
+  }, [visibility]);
 
   return (
     <div

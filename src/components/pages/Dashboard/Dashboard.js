@@ -26,18 +26,27 @@ const Dashboard = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    uploadBytes(ref(storage, `usersAvatars/${user.uid}`), avatarInputValue)
-      .then((snapshot) => {
-        return getDownloadURL(snapshot.ref);
-      })
-      .then((avatarURL) => {
-        return updateProfile(user, {
-          displayName: nameInputValue,
-          photoURL: avatarURL,
-        }).then(() => {
-          navigate('/');
+    if (!avatarInputValue && user.displayName === nameInputValue) return;
+    if (avatarInputValue) {
+      uploadBytes(ref(storage, `usersAvatars/${user.uid}`), avatarInputValue)
+        .then((snapshot) => {
+          return getDownloadURL(snapshot.ref);
+        })
+        .then((avatarURL) => {
+          return updateProfile(user, {
+            displayName: nameInputValue,
+            photoURL: avatarURL,
+          }).then(() => {
+            navigate('/');
+          });
         });
+    } else if (!avatarInputValue && user.displayName !== nameInputValue) {
+      updateProfile(user, {
+        displayName: nameInputValue,
+      }).then(() => {
+        navigate('/');
       });
+    }
   };
 
   return (

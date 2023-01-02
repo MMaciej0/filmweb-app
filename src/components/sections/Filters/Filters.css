@@ -73,6 +73,10 @@
     transform: translateX(0);
   }
 
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
   .filters__container {
     position: fixed;
     top: 0;
