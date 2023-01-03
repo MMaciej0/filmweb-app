@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
-import { useFilterContext } from 'contexts/filter/filter';
 import './Filters.css';
 
 import SearchBar from '../SearchBar/SearchBar';
@@ -8,10 +7,15 @@ import Checkbox from 'components/atoms/Checkbox/Checkbox';
 import OutlineSingleSelectBtn from 'components/atoms/OutlineSingleSelectBtn/OutlineSingleSelectBtn';
 import PrimaryButton from 'components/atoms/PrimaryButton/PrimaryButton';
 
-const Filters = ({ visibility, setVisibility }) => {
-  const { handleSearchMovie, handleSearchChange, searchValue, genres } =
-    useFilterContext();
-
+const Filters = ({
+  visibility,
+  hideFilters,
+  handleSearchMovie,
+  handleSearchChange,
+  searchValue,
+  genres,
+  handleSelectedGenres,
+}) => {
   useEffect(() => {
     document.body.style.overflowY = visibility ? 'hidden' : 'visible';
   }, [visibility]);
@@ -23,7 +27,7 @@ const Filters = ({ visibility, setVisibility }) => {
       }
     >
       <aside className="filters">
-        <button className="filters__hide" onClick={() => setVisibility(false)}>
+        <button className="filters__hide" onClick={hideFilters}>
           <AiOutlineClose />
         </button>
         <div className="filters__list">
@@ -49,7 +53,7 @@ const Filters = ({ visibility, setVisibility }) => {
             <ul>
               {genres.map((genre, index) => (
                 <li key={index}>
-                  <Checkbox label={genre} />
+                  <Checkbox label={genre} handleChange={handleSelectedGenres} />
                 </li>
               ))}
             </ul>

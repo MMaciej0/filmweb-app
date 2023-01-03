@@ -42,12 +42,16 @@
 
 @media screen and (min-width: 768px) {
   .search__label {
-    padding-inline: 5vw;
+    padding-left: 5vw;
+  }
+
+  .search__container button {
+    padding-inline: 7rem;
   }
 }
 
 @media screen and (min-width: 1170px) {
   .search__label {
-    padding-inline: 10vw;
+    padding-left: 10vw;
   }
 }

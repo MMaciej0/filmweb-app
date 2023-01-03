@@ -13,7 +13,6 @@ import RegisterPage from 'components/pages/RegisterPage/RegisterPage';
 import Dashboard from 'components/pages/Dashboard/Dashboard';
 import SingleMoviePage from 'components/pages/SingleMoviePage/SingleMoviePage';
 import MoviesPage from 'components/pages/MoviesPage/MoviesPage';
-import { FilterProvider } from 'contexts/filter/filter';
 
 const routes = createBrowserRouter([
   {
@@ -57,9 +56,7 @@ root.render(
   <React.StrictMode>
     <GlobalProvider>
       <CartProvider>
-        <FilterProvider>
-          <RouterProvider router={routes} />
-        </FilterProvider>
+        <RouterProvider router={routes} />
       </CartProvider>
     </GlobalProvider>
   </React.StrictMode>
