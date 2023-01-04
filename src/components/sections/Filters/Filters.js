@@ -6,24 +6,34 @@ import SearchBar from '../SearchBar/SearchBar';
 import Checkbox from 'components/atoms/Checkbox/Checkbox';
 import OutlineSingleSelectBtn from 'components/atoms/OutlineSingleSelectBtn/OutlineSingleSelectBtn';
 import PrimaryButton from 'components/atoms/PrimaryButton/PrimaryButton';
+import { useFilterContext } from 'contexts/filter/filter';
+import { getData } from 'utils/http';
 
-const Filters = ({
-  visibility,
-  hideFilters,
-  handleSearchMovie,
-  handleSearchChange,
-  searchValue,
-  genres,
-  handleSelectedGenres,
-}) => {
+const Filters = () => {
+  const [genres, setGenres] = useState([]);
+  const {
+    filterVisibility,
+    hideFilters,
+    searchValue,
+    handleSearchChange,
+    handleSearchMovie,
+    handleSelectedGenres,
+    handleSelectSort,
+    handleApplyFilters,
+  } = useFilterContext();
+
   useEffect(() => {
-    document.body.style.overflowY = visibility ? 'hidden' : 'visible';
-  }, [visibility]);
+    getData('genres', setGenres);
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflowY = filterVisibility ? 'hidden' : 'visible';
+  }, [filterVisibility]);
 
   return (
     <div
       className={
-        visibility ? 'filters__container visible' : 'filters__container'
+        filterVisibility ? 'filters__container visible' : 'filters__container'
       }
     >
       <aside className="filters">
@@ -41,11 +51,22 @@ const Filters = ({
           <div className="filters__row">
             <h3>Sort:</h3>
             <div className="filters__buttons">
-              <OutlineSingleSelectBtn active={true}>
+              <OutlineSingleSelectBtn
+                active={true}
+                handleClick={() => handleSelectSort('random')}
+              >
                 Random
               </OutlineSingleSelectBtn>
-              <OutlineSingleSelectBtn>Newest</OutlineSingleSelectBtn>
-              <OutlineSingleSelectBtn>Oldest</OutlineSingleSelectBtn>
+              <OutlineSingleSelectBtn
+                handleClick={() => handleSelectSort('newest')}
+              >
+                Newest
+              </OutlineSingleSelectBtn>
+              <OutlineSingleSelectBtn
+                handleClick={() => handleSelectSort('oldest')}
+              >
+                Oldest
+              </OutlineSingleSelectBtn>
             </div>
           </div>
           <div className="filters__row">
@@ -60,7 +81,7 @@ const Filters = ({
           </div>
         </div>
         <div className="filters__submit">
-          <PrimaryButton>Apply</PrimaryButton>
+          <PrimaryButton handleClick={handleApplyFilters}>Apply</PrimaryButton>
         </div>
       </aside>
     </div>

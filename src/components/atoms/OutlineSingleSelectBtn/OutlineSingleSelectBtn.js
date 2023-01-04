@@ -16,9 +16,6 @@ const OutlineSingleSelectBtn = ({
         !singleBtn.current.contains(e.target) &&
         e.target.classList.contains('outline-btn__single')
       ) {
-        console.log(
-          singleBtn.current.classList.value === 'outline-btn__single active'
-        );
         singleBtn.current.classList.remove('active');
       }
     };

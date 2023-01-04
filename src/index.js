@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { GlobalProvider } from 'contexts/global/global';
 import { CartProvider } from 'contexts/cart/cart';
+import { FilterProvider } from 'contexts/filter/filter';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './index.css';
 
@@ -56,7 +57,9 @@ root.render(
   <React.StrictMode>
     <GlobalProvider>
       <CartProvider>
-        <RouterProvider router={routes} />
+        <FilterProvider>
+          <RouterProvider router={routes} />
+        </FilterProvider>
       </CartProvider>
     </GlobalProvider>
   </React.StrictMode>
