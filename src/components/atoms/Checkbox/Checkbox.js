@@ -18,11 +18,15 @@ const labelStyle = {
   },
 };
 
-function PrimaryCheckbox({ label, handleChange }) {
+function PrimaryCheckbox({ label, handleChange, checked }) {
   return (
     <FormControlLabel
       control={
-        <Checkbox onChange={() => handleChange(label)} sx={checkboxStyle} />
+        <Checkbox
+          onChange={() => handleChange(label)}
+          sx={checkboxStyle}
+          checked={checked}
+        />
       }
       label={label}
       sx={labelStyle}

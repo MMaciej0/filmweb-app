@@ -20,6 +20,8 @@ const Filters = () => {
     handleSelectedGenres,
     handleSelectSort,
     handleApplyFilters,
+    selectedGenres,
+    sortValue,
   } = useFilterContext();
 
   useEffect(() => {
@@ -52,17 +54,19 @@ const Filters = () => {
             <h3>Sort:</h3>
             <div className="filters__buttons">
               <OutlineSingleSelectBtn
-                active={true}
+                active={sortValue === 'random'}
                 handleClick={() => handleSelectSort('random')}
               >
                 Random
               </OutlineSingleSelectBtn>
               <OutlineSingleSelectBtn
+                active={sortValue === 'newest'}
                 handleClick={() => handleSelectSort('newest')}
               >
                 Newest
               </OutlineSingleSelectBtn>
               <OutlineSingleSelectBtn
+                active={sortValue === 'oldest'}
                 handleClick={() => handleSelectSort('oldest')}
               >
                 Oldest
@@ -72,11 +76,18 @@ const Filters = () => {
           <div className="filters__row">
             <h3>Genres:</h3>
             <ul>
-              {genres.map((genre, index) => (
-                <li key={index}>
-                  <Checkbox label={genre} handleChange={handleSelectedGenres} />
-                </li>
-              ))}
+              {genres.map((genre, index) => {
+                const checked = selectedGenres.includes(genre);
+                return (
+                  <li key={index}>
+                    <Checkbox
+                      label={genre}
+                      handleChange={handleSelectedGenres}
+                      checked={checked}
+                    />
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </div>

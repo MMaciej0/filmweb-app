@@ -7,12 +7,6 @@ const moviesReducer = (state, action) => {
         filteredMovies: action.payload,
       };
 
-    case 'UPDATE_DISPLAY_MOVIES':
-      if (state.filteredMovies.length === 0 || state.searchValue.length === 0) {
-        state.filteredMovies = state.allMovies;
-      }
-      return { ...state };
-
     case 'SHOW_FILTERS':
       return { ...state, filterVisibility: true };
 

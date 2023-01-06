@@ -19,11 +19,13 @@ export const FilterProvider = ({ children }) => {
 
   useEffect(() => {
     dispatch({ type: 'SETUP_MOVIES', payload: movies });
-  }, []);
+  }, [movies]);
 
-  //   useEffect(() => {
-  //     dispatch({ type: 'UPDATE_DISPLAY_MOVIES' });
-  //   }, [state.filteredMovies, state.searchValue]);
+  useEffect(() => {
+    if (!state.searchValue) {
+      dispatch({ type: 'APPLY_FILTERS' });
+    }
+  }, [state.searchValue]);
 
   const toggleFilters = () => {
     return dispatch({ type: 'TOGGLE_FILTERS' });
