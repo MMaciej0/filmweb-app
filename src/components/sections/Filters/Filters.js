@@ -8,6 +8,7 @@ import OutlineSingleSelectBtn from 'components/atoms/OutlineSingleSelectBtn/Outl
 import PrimaryButton from 'components/atoms/PrimaryButton/PrimaryButton';
 import { useFilterContext } from 'contexts/filter/filter';
 import { getData } from 'utils/http';
+import { useLocation } from 'react-router-dom';
 
 const Filters = () => {
   const [genres, setGenres] = useState([]);
@@ -24,12 +25,16 @@ const Filters = () => {
     sortValue,
   } = useFilterContext();
 
+  const location = useLocation();
+
   useEffect(() => {
     getData('genres', setGenres);
   }, []);
 
   useEffect(() => {
-    document.body.style.overflowY = filterVisibility ? 'hidden' : 'visible';
+    if (location.pathname === '/movies') {
+      document.body.style.overflowY = filterVisibility ? 'hidden' : 'visible';
+    }
   }, [filterVisibility]);
 
   return (
