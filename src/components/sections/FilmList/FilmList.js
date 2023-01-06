@@ -5,9 +5,7 @@ import ListItem from '../MovieListItem/MovieListItem';
 const FilmList = ({ movies }) => {
   return (
     <ul className="movie-list">
-      {movies.map((movie) => (
-        <ListItem {...movie} key={movie.id} />
-      ))}
+      {movies && movies.map((movie) => <ListItem {...movie} key={movie.id} />)}
     </ul>
   );
 };
