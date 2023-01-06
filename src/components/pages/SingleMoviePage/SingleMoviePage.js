@@ -18,6 +18,7 @@ const SingleMoviePage = () => {
   const { movies, user } = useGlobalContext();
 
   useEffect(() => {
+    document.body.style.overflowY = 'visible';
     setMovie(movies.find((movie) => movie.id === Number(id)));
   }, [movies]);
 
